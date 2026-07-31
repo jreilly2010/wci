@@ -27,6 +27,17 @@
     /* A tighter home grid keeps guest feedback in view on the iPad. */
     .home-grid{gap:12px}.tile{min-height:118px;padding:13px 16px}.tile i{font-size:23px;margin-bottom:5px}.tile span{margin-top:3px}
     .footer-address::before{margin:7px 0 10px}
+    /* High-contrast, color-independent guest interface. */
+    :root{--ink:#102f38;--ocean:#073c4a;--sea:#17656a;--cream:#fffdf7;--sand:#f7efdf;--rose:#7a281f;--gold:#c79a42;--line:#9aa9a5}
+    body{background:linear-gradient(145deg,#0a4b59 0%,#07333e 72%)}
+    .panel,.tile,.card{border-color:#9aa9a5}.tile{box-shadow:0 4px 12px #061a2033}.tile i{color:var(--rose)}
+    .tile span,.heading p,.small,.card p,.card li,.confirmation p{color:#29494f}
+    .guide-link{color:#70231c;text-decoration-thickness:2px;text-underline-offset:3px}
+    .primary{background:#7a281f;box-shadow:0 3px 0 #4f1813}.quiet{color:#102f38;border:2px solid #526d70}
+    .option{border:2px solid #78928f;color:#102f38}.option.selected{background:#073c4a;border-color:#073c4a;color:#fff}
+    .option.selected::after{content:' ✓';font-family:Arial,sans-serif;font-weight:700}
+    .primary,.quiet,.option,.tile,.mini{font-weight:700}
+    button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:4px solid #f0bd45;outline-offset:3px}
   </style>
   <script>document.addEventListener('DOMContentLoaded',()=>{const beachCopy=['Available at check-in.','Closet to the left of the front door before exiting.','In the backyard beside the outdoor shower.','In the outdoor bin.','Rinse your feet at the outdoor shower. Hang beach towels outside to dry and help keep sand out of the inn.','Wipe sandy items with a towel; shake it out and hang it outside. Or rinse items and leave them outside to dry.'];document.querySelectorAll('#beach .card p').forEach((paragraph,index)=>{if(beachCopy[index])paragraph.textContent=beachCopy[index]})})</script>
   <script>document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.bottom-breadcrumb').forEach(item=>item.remove());const goHome=()=>show('home');document.querySelector('.mast')?.addEventListener('click',goHome);document.querySelector('.kiosk-footer')?.addEventListener('click',event=>{if(event.target.closest('.footer-address')&&!event.target.closest('button'))goHome()})})</script>
