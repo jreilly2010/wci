@@ -115,8 +115,11 @@ function addLocalGuideCards(){const act=document.querySelector('#activities .car
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // Keep this false while the Sleep Set is not for sale. Set it to true to restore
+    // the saved card (including its product image and Venmo QR code) later.
+    const sleepWellEnabled = false;
     const stay = document.querySelector('.return-stay');
-    if (!stay || document.querySelector('.sleep-well')) return;
+    if (!sleepWellEnabled || !stay || document.querySelector('.sleep-well')) return;
     const feature = document.createElement('section');
     feature.className = 'sleep-well';
     feature.setAttribute('aria-label', 'Sleep well');
